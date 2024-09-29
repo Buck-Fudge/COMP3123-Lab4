@@ -37,6 +37,23 @@ app.get('/user', (req, res) => {
     <p>Last Name: ${lname}</p>`)
 })
 
+// POST Request
+// http:localhost:3000/user
+// but this time with post method.
+app.post('/user/:fname/:lname', (req, res) => {
+
+    const {fname, lname} = req.params;
+    //console.log(req.query);
+    console.log(`User invoked user method via POST: ${fname} ${lname}`);
+    
+    res.status(200);
+    res.type('html');
+
+    res.send(`<h1>User</h1>
+        <p>First Name: ${fname}</p>
+        <p>Last Name: ${lname}</p>`)
+})
+
 
 
 app.listen(SERVER_PORT, () => {
